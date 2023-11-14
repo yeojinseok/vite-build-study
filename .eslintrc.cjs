@@ -4,44 +4,33 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    'plugin:react/recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-    '@looko-corp/eslint-config-acloset-react',
+    "airbnb",
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
   ],
-  settings: {
-    react: {
-      version: 'detect',
+  overrides: [
+    {
+      env: {
+        node: true,
+      },
+      files: [".eslintrc.{js,cjs}"],
+      parserOptions: {
+        sourceType: "script",
+      },
     },
-  },
-  parser: '@typescript-eslint/parser',
+  ],
+  parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: './tsconfig.json',
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: "./tsconfig.json",
   },
-  plugins: ['react', '@typescript-eslint', 'prettier'],
+  plugins: ["@typescript-eslint", "react", "prettier"],
   rules: {
-    'react/react-in-jsx-scope': 0,
-    'import/extensions': ['error', 'never', { svg: 'always' }],
-
-    '@typescript-eslint/ban-ts-comment': [
-      'error',
-      {
-        'ts-nocheck': 'allow-with-description',
-      },
-    ],
-
-    '@typescript-eslint/strict-boolean-expressions': [
-      'error',
-      {
-        allowNullableBoolean: true,
-        allowNullableString: true,
-        allowNullableNumber: true,
-      },
-    ],
+    "react/react-in-jsx-scope": 0,
   },
+  ignorePatterns: [".eslintrc.cjs"],
 };

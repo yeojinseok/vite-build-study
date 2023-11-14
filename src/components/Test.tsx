@@ -1,6 +1,6 @@
-export default function Test(){
-
-return <div>
-  hjihiih
-</div>
+export default function Test() {
+  const foo = function () {
+    return "a";
+  };
+  return <div>hjihiih</div>;
 }
